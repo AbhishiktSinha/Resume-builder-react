@@ -1,0 +1,77 @@
+.form-container {
+
+    .skill-input-container {
+
+        width: 100%;
+        display: flex !important;
+        flex-direction: row;
+        align-items: flex-end;
+        justify-content: center;
+
+        column-gap: 12px;
+        
+        .form-input-container {
+            flex-grow: 1;
+            height: fit-content;
+            display: flex;
+            justify-content: center;
+        }
+    }
+
+    .skills-container {
+        width: 100%;
+        padding: 12px;
+
+        display: flex;
+        flex-wrap: wrap;        
+        justify-content: center;
+        gap: 20px;
+
+        .skill-chip-container {
+            padding: 8px 12px;
+            border-radius: 4px;
+
+            background-color: var(--accentBg);
+            border: 1px solid var(--accent);
+            color: var(--accent);
+            font-weight: 500;
+        
+            position: relative;
+        
+            >button {
+                opacity: 0;
+                transition: 0.3s;
+                transition-delay: 1s;
+                position: absolute;
+
+                padding: 3px;
+
+                top: -10px;
+                right: -10px;
+        
+                width: 20px;
+                height: 20px;
+                min-width: 16px;
+        
+                border-radius: 50%;
+
+                font-size: 14px;
+                font-weight: 800;                
+
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+        }
+        .skill-chip-container:hover {
+            >button {
+                opacity: 1;
+                transition-delay: 0s;
+            }
+            >button:hover {
+                opacity: 1;
+            }
+        }
+        
+    }
+}

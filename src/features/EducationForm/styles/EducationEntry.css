@@ -1,0 +1,28 @@
+.entry-container {
+    width: 100%;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    row-gap: 16px;
+
+    border-radius: 8px;
+    background-color: #ecececec;
+
+    padding: 8px;
+
+    .entry-row {
+
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        column-gap: 16px;
+
+        >div {
+            flex-grow: 1;
+        }
+    }
+
+    .delete-entry-button {
+        align-self: flex-end;
+    }
+}

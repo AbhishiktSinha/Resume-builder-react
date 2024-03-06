@@ -1,0 +1,16 @@
+key: FPSXc2f534d9d1d14e85892d980faf2c6bf0
+
+baseUrl: https://api.flaticon.com/v3
+
+POST auth: https://api.flaticon.com/v3/app/authentication
+
+auth requires apikey in body : 
+{
+    'apikey': value
+}
+
+GET search: https://api.flaticon.com/v3/search/icons/priority?limit=10&q=
+
+search required token in header as :
+    'Accept':'application/json',
+    'Authorization':'string'

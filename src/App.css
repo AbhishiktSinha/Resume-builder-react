@@ -1,0 +1,243 @@
+:root {
+    --accent: #1030ee;
+    --accentBg: #566df121;
+    --accentRed: #d03131;
+    --accentRedBg: #ee9a9a61;
+}
+
+* {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;    
+}
+input {
+    outline: none;
+    border: none;
+    background: transparent;
+    font-size: 14px;
+    padding: 4px;
+}
+
+button {
+    border: none;
+    outline: none;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    background: transparent;
+
+    padding: 8px;
+
+    border-radius: 8px;
+
+    cursor: pointer;
+
+    text-wrap: nowrap;
+}
+button:disabled {
+    cursor:not-allowed;
+    background: #ececec;
+    border: 1px solid gray;
+    color: gray;
+}
+
+#main {
+    display: flex;
+    flex-direction: column;
+    row-gap: 24px;
+
+    align-items: center;
+    justify-content: center;
+
+    height: fit-content;
+    min-height: 300px;
+
+    >header{
+        width: 100%;
+        background-color: var(--accent);
+        color: #ffffff;
+
+        font-weight: 500 !important;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        padding: 24px;
+
+        text-transform: uppercase;
+    }
+
+    .form-progress-section {
+        width: 100%;
+        padding: 12px;
+
+        display: flex;
+        flex-direction: row;
+        column-gap: 8px;
+
+        align-items: center;
+        justify-content: center;
+
+
+        .form-label {
+            display: flex;
+            align-items: center;
+            column-gap: 5px;
+
+            font-size: 13px;
+
+            flex-shrink: 1;
+
+            .progress-circle {
+                width: 25px;
+                height: 25px; 
+                min-width: 25px;
+                min-height: 25px;
+                
+                border: 2px solid #dddddd;
+                border-radius: 50%;
+
+                background: white;
+            }
+            .progress-circle.fill-circle {
+                background-color: var(--accent);
+                padding: 4px;
+            }
+            .progress-circle.accent-circle {
+                border: 2px solid var(--accent)
+            }
+            .progress-circle.highlight-circle {
+                box-shadow: 0 0 10px var(--accent);
+            }
+        }
+
+        .progress-line {
+            width: 60px;
+            min-width: 40px;
+            height: 0px;
+            border: 1px solid gray;
+            flex-grow: 1;
+            flex-shrink: 2;
+        }
+    }
+
+    .form-display-section {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: start;
+        align-items: center;
+        
+        min-height: 300px;
+        max-height: 450px;
+
+        overflow-y: auto;
+    }
+
+    .form-navigation-section {
+        width: 100%;
+        display: flex;
+        align-items: flex-end;
+        justify-content: center;
+        gap: 16px;
+
+    }    
+}
+
+.fill-button {
+    background-color: var(--accent);
+    color: white;
+    font-weight: 500;
+    padding: 10px;
+}
+.fill-button-red {
+    background-color: var(--accentRed);
+    color: white;
+    font-weight: 500;
+    padding: 10px;
+}
+.accent-button {
+    border: 2px solid var(--accent);
+    color: var(--accent);
+    background-color: var(--accentBg);
+    font-weight: 500;
+}
+.accent-button-red {
+    border: 2px solid var(--accentRed);
+    color: var(--accentRed);
+    background-color: var(--accentRedBg);
+    font-weight: 500;
+}
+
+.error-backdrop {
+    position: absolute;
+    width: 100%;
+    height: 400px;
+
+    z-index: 500;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    
+    .error-card {
+        display: flex;
+        flex-direction: column;
+        row-gap: 12px;
+        
+        position: relative;
+        opacity: 1;
+                
+        animation: errorCardEntry 0.3s linear;
+
+        min-width: 200px;        
+        padding: 12px;
+
+        border-radius: 8px;
+        background-color: #fff;
+
+        font-weight: 500;
+
+        box-shadow: 0 0 15px -5px gray;
+
+        >p:first-child {
+            color: #d32d2d;
+            font-size: 22px;
+        }
+
+        .cancel-error-btn {
+            position: absolute;
+            top: -12px;
+            right: -12px;
+
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+
+            background-color: #d32d2d;
+        }
+
+    }    
+}
+
+@keyframes errorCardEntry {
+    from {
+        /* transform: translateX(20px); */
+        opacity: 0;
+    }
+    to {
+        /* transform: translate(0); */
+        opacity: 1;
+    }
+}
+
+@keyframes errorCardLeave {
+    from {
+        /* transform: translate(0); */
+        opacity: 1;
+    }
+    to {
+        /* transform: translateX(-20px); */
+        opacity: 0;
+    }
+}

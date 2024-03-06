@@ -1,0 +1,7 @@
+export const ActionTypes = {
+    NEXT_FORM : 'NEXT_FORM',
+    PREVIOUS_FORM : 'PREVIOUS_FORM',  
+    GO_TO_FORM: 'GO_TO_FORM',
+    SAVE_FORM : 'SAVE_FORM',
+    CHANGE_STATUS: 'CHANGE_STATUS',
+}
