@@ -85,13 +85,13 @@ button:disabled {
 
             font-size: 13px;
 
-            flex-shrink: 1;
+            flex-shrink: 1;            
 
             .progress-circle {
                 width: 25px;
-                height: 25px; 
-                min-width: 25px;
-                min-height: 25px;
+                aspect-ratio: 1;
+                min-width: 12px;
+                min-height: 12px;
                 
                 border: 2px solid #dddddd;
                 border-radius: 50%;
@@ -112,7 +112,7 @@ button:disabled {
 
         .progress-line {
             width: 60px;
-            min-width: 40px;
+            min-width: 20px;
             height: 0px;
             border: 1px solid gray;
             flex-grow: 1;

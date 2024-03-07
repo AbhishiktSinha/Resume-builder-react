@@ -1,7 +1,7 @@
 import { inputs } from "../inputs";
 import FormInput from "../../../components/FormInput";
 
-export default function ProjectEntry({ entryId, entryData, isEntryValid, formChangeHandler, deleteHandler }) {
+export default function ProjectEntry({ entryId, entryData, isEntryValid, deleteHandler }) {
 
     
     return (
@@ -27,8 +27,7 @@ export default function ProjectEntry({ entryId, entryData, isEntryValid, formCha
                     }}
 
                     value={entryData.projectTitle}
-
-                    givenChangeHandler={formChangeHandler}
+                    
                 />
 
                 <FormInput 
@@ -36,8 +35,7 @@ export default function ProjectEntry({ entryId, entryData, isEntryValid, formCha
                         ...inputs.techStacks,
                         name: `${inputs.techStacks.name}_${entryId}`
                     }}
-                    value={entryData.techStacks}
-                    givenChangeHandler={formChangeHandler}
+                    value={entryData.techStacks}                    
                 />
             </div>
             <div className="entry-row">
@@ -46,8 +44,7 @@ export default function ProjectEntry({ entryId, entryData, isEntryValid, formCha
                         ...inputs.description,
                         name: `${inputs.description.name}_${entryId}`
                     }}
-                    value={entryData.description}
-                    givenChangeHandler={formChangeHandler}
+                    value={entryData.description}                    
                 />
             </div>
         </div>

@@ -117,7 +117,7 @@ export default function ProjectForm({loadFormData, saveForm, formSubmitHandler})
 
     return(
         <div className="form-container">
-            <form id="projectsForm" onSubmit={submitHandler}>
+            <form id="projectsForm" onSubmit={submitHandler} onChange={formChangeHandler}>
                 {
                     Object.keys(formData)
                     .map( entryId => {
@@ -130,8 +130,7 @@ export default function ProjectForm({loadFormData, saveForm, formSubmitHandler})
                                 key={entryId}
                                 entryId={entryId}
                                 entryData={entryData}
-                                isEntryValid={entryErrors}
-                                formChangeHandler={formChangeHandler}
+                                isEntryValid={entryErrors}                                
                                 deleteHandler={deleteEntryHandler}
                             />
                         )

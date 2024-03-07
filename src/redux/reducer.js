@@ -98,6 +98,11 @@ export default function reducer(state = initialState, action) {
 
         case SAVE_FORM :
             const {formId, formData, isFormValid, submitting} = payload;
+            console.log('in reducer save_form:', 
+                (state.currentStep == state.lastStep ?
+                ( submitting ? 'submitting' : 'init') : 'init')
+            );
+
             return {
                 ...state,
                 status: (
@@ -125,7 +130,7 @@ export default function reducer(state = initialState, action) {
         case CHANGE_STATUS :
             const newStatus = payload.status;
             const error= payload.error? payload.error : '';
-
+            
             console.log('changing status in reducer:', payload)
 
             return {

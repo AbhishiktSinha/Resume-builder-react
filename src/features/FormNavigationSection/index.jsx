@@ -69,13 +69,6 @@ export default function FormNavigationSection() {
                     Back
             </button>
 
-            <button 
-                disabled={currentStep === lastStep}
-                onClick={goNext}
-                form={formId}
-                className="next-button fill-button">
-                    Next
-            </button>
              
             {
                 currentStep < lastStep && (
@@ -96,6 +89,14 @@ export default function FormNavigationSection() {
                         </button>
                 )
             }
+            
+            <button 
+                disabled={currentStep === lastStep}
+                onClick={goNext}
+                form={formId}
+                className="next-button fill-button">
+                    Next
+            </button>
         </div>
     )
 }

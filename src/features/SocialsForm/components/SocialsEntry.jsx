@@ -3,8 +3,7 @@ import { inputs } from "../inputs";
 
 
 export default function SocialsEntry({
-    entryId, entryData, isEntryValid, 
-    formChangeHandler, deleteHandler
+    entryId, entryData, isEntryValid, deleteHandler
 }) {
 
     return (
@@ -34,8 +33,7 @@ export default function SocialsEntry({
                             inputs.socialLink.errorMessage : 
                             '',
                     }}
-                    value={entryData.socialLink}
-                    givenChangeHandler={formChangeHandler}
+                    value={entryData.socialLink}                    
                 />
             </div>
         </div>

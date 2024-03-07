@@ -27,17 +27,22 @@ export default function FormDisplaySection() {
     const currentForm = stepFormIdList[currentStep];
     
     const isCurrentFormSubmitted = useSelector( state => state.data[currentForm].isSubmitted);
+    
+    console.log('STATUS:', status,'isCurrentFormSubmitted:', isCurrentFormSubmitted);
+    console.log('current form:', currentForm);
+    console.log('form redux data', data[currentForm]);
 
     // when the status changes to submitting, and again
     // when the last form gets submitted while the status is submitting
     useEffect(()=>{
 
-        console.log('STATUS:', status,'isCurrentFormSubmitted:', isCurrentFormSubmitted);
 
         if (status === 'submitting' && 
             currentStep == lastStep && 
             isCurrentFormSubmitted == true) {
                 
+
+                console.log('submitting all details');
                 // check if any form is remaining from being submitted
                 let remainingFormIdx = null;
 
@@ -75,16 +80,20 @@ export default function FormDisplaySection() {
     useEffect(()=>{
         if (status === 'success') {
             console.log('user data:',data);
+            // TODO: REMOVE LATER, DO THIS ON THE BACK BUTTON IN RESUME PAGE
+            /* dispatch({
+                type: CHANGE_STATUS,
+                payload: 'init',
+            }) */
         }
     }, [status])
 
 
 
-    console.log('current form:', currentForm);
-    console.log('form redux data', data[currentForm]);
 
     function formSubmitHandler(formData, isFormValid, inputs) {
 
+        console.log('submitting form:',currentForm);
         console.log('formData: ', formData);
         console.log('isFormValid:', isFormValid);
         console.log('inputs:', inputs);
@@ -108,11 +117,11 @@ export default function FormDisplaySection() {
         let wrongInput = null;
         for (let key in isFormValid) {
 
-            console.log('Number(',key,') == ', Number(key));
+            // console.log('Number(',key,') == ', Number(key));
             
             if (!isNaN(Number(key))) {
 
-                console.log('key is a number', isFormValid[key]);
+                // console.log('key is a number', isFormValid[key]);
 
                 for (let entryKey in isFormValid[key]) {                    
 
@@ -173,7 +182,7 @@ export default function FormDisplaySection() {
 
     function loadFormData(setFormData, setIsFormValid) {
 
-        if (status == 'init') {
+        if (status == 'init' || status === 'success') {
 
             console.log(currentForm,'data in redux',data[currentForm].formData);
             console.log(Object.keys(data[currentForm].formData))

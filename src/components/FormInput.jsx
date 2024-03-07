@@ -1,7 +1,7 @@
 import { useRef, useState } from "react";
 import '../styles/FormInput.css'
 
-export default function FormInput({inputDetails, value, givenChangeHandler, givenEnterHandler}) {
+export default function FormInput({inputDetails, value, givenEnterHandler}) {
 
     const {type, name, label, required, errorMessage, emptyError} = inputDetails;
     
@@ -26,10 +26,7 @@ export default function FormInput({inputDetails, value, givenChangeHandler, give
         if (key === 'Enter') {
             givenEnterHandler();
         }
-    }
-
-    // console.log('render:',name);
-    // console.log(inputRef);    
+    }  
 
     return (
         <div className="form-input-container">
@@ -43,13 +40,8 @@ export default function FormInput({inputDetails, value, givenChangeHandler, give
                 onFocus={focusHandler}
                 onBlur={blurHandler}
                 { ...(givenEnterHandler && {onKeyUp: enterHandler})}
-                
-                { ...( givenChangeHandler ? 
-                    {onChange: givenChangeHandler} : 
-                    {onChange: changeHandler} ) 
-                } 
-                
-                value={usedValue}
+                                
+                {...(value != undefined && {value: value} )}
 
                 />
             {/* if the input element is empty and focused, don't show the error */}

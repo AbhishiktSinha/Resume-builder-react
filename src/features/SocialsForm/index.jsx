@@ -109,7 +109,7 @@ export default function SocialsForm({loadFormData, saveForm, formSubmitHandler})
 
     return (
         <div className="form-container">
-            <form id="socialsForm" onSubmit={submitHandler}>
+            <form id="socialsForm" onSubmit={submitHandler} onChange={onChangeHandler}>
 
                 {/* get all the entries */}
                 {
@@ -128,8 +128,7 @@ export default function SocialsForm({loadFormData, saveForm, formSubmitHandler})
                                 key={entryId}
                                 entryId={entryId}
                                 entryData={entryData}
-                                isEntryValid={isEntryValid}
-                                formChangeHandler={onChangeHandler}
+                                isEntryValid={isEntryValid}                                
                                 deleteHandler={deleteEntryHandler}
                             />
                         )

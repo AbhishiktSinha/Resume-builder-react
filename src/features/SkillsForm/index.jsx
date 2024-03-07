@@ -29,9 +29,10 @@ export default function SkillForm({loadFormData, saveForm, formSubmitHandler}) {
     const [skillValue, setSkillValue] = useState('')
 
 
-    const status = useSelector(state => state.status);
+    const status = useSelector(state => state.status);    
 
     useEffect(()=>{
+        console.log('USE-EFFECT TO RETREIVE REDUX DATA');
         loadFormData(setFormData, setIsFormValid)
     }, [])    
 
@@ -46,6 +47,10 @@ export default function SkillForm({loadFormData, saveForm, formSubmitHandler}) {
         
         if (Object.keys(formData).length > 0) {
             setIsFormValid('');
+        }
+        if (Object.keys(formData).length == 0) {
+            setIsFormValid('Add at least one skill');
+            
         }
     }, [Object.keys(formData).length])
 
@@ -84,11 +89,15 @@ export default function SkillForm({loadFormData, saveForm, formSubmitHandler}) {
     
     return (
         <div className="form-container">
-            <form className="skill-input-container" id="skillsForm" onSubmit={submitHandler}>
+            <form 
+                className="skill-input-container" 
+                id="skillsForm" 
+                onSubmit={submitHandler}
+                onChange={changeHandler}>
+                    
                 <FormInput 
                     inputDetails={skillInput}
-                    value={skillValue}
-                    givenChangeHandler={changeHandler}
+                    value={skillValue}                    
                     givenEnterHandler={enterHandler}
                     />
                 <button 

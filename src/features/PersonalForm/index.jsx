@@ -50,7 +50,7 @@ export default function PersonalForm({loadFormData, saveForm, formSubmitHandler}
     }, [status])
         
         
-    console.log(formData, isFormValid);
+    // console.log(formData, isFormValid);
     // console.log(data);
 
     function changeHandler(e) {        

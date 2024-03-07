@@ -70,6 +70,7 @@ export default function EducationForm({loadFormData, saveForm, formSubmitHandler
 
 
     useEffect(()=>{
+        console.log('USEEFFECT TO RETREIVE REDUX DATA');
         loadFormData(setFormData, setIsFormValid)
     }, [])
 
@@ -143,7 +144,7 @@ export default function EducationForm({loadFormData, saveForm, formSubmitHandler
 
     return (
         <div className="form-container">
-            <form id="educationForm" onSubmit={submitHandler}>
+            <form id="educationForm" onSubmit={submitHandler} onChange={formChangeHandler}>
                 
                 {
                     Object.keys(formData).
@@ -158,8 +159,7 @@ export default function EducationForm({loadFormData, saveForm, formSubmitHandler
                                 key={itemId}
                                 entryValues={item}
                                 isEntryValid={errorItem}
-                                id={itemId}
-                                formChangeHandler={formChangeHandler}
+                                id={itemId}                                
                                 deleteEntryHandler={deleteEntryHandler}
                             />                            
                         )

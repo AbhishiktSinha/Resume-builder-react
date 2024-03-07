@@ -22,7 +22,7 @@ function getModifiedInputDetails(inputDetails, id, inputValid) {
 }
 
 export default function EducationEntry({
-    id, entryValues, isEntryValid, formChangeHandler, deleteEntryHandler}) {
+    id, entryValues, isEntryValid, deleteEntryHandler}) {
 
         
         return (
@@ -48,8 +48,7 @@ export default function EducationEntry({
                         inputDetails={getModifiedInputDetails(
                             inputs.courseName, id, isEntryValid.courseName
                         )}
-                        value={entryValues.courseName}
-                        givenChangeHandler={formChangeHandler}
+                        value={entryValues.courseName}                        
                     />
 
                     
@@ -57,8 +56,7 @@ export default function EducationEntry({
                         inputDetails={getModifiedInputDetails(
                             inputs.completionYear, id, isEntryValid.completionYear
                         )}
-                        value={entryValues.completionYear}
-                        givenChangeHandler={formChangeHandler}
+                        value={entryValues.completionYear}                        
                     />
 
                 </div>
@@ -69,8 +67,7 @@ export default function EducationEntry({
                         inputDetails={getModifiedInputDetails(
                             inputs.instituteName, id, isEntryValid.instituteName
                         )}
-                        value={entryValues.instituteName}
-                        givenChangeHandler={formChangeHandler}
+                        value={entryValues.instituteName}                        
                     />
 
                     
@@ -78,8 +75,7 @@ export default function EducationEntry({
                         inputDetails={getModifiedInputDetails(
                             inputs.percentage, id, isEntryValid.percentage
                         )}
-                        value={entryValues.percentage}
-                        givenChangeHandler={formChangeHandler}
+                        value={entryValues.percentage}                        
                     />
 
                 </div>
